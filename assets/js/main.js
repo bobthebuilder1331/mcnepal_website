@@ -110,10 +110,10 @@ function initializeScrollEffects() {
         observer.observe(el);
     });
 
-    // Parallax effect for hero section
+    // Parallax effect for hero section (excluding stats cards)
     window.addEventListener('scroll', function() {
         const scrolled = window.pageYOffset;
-        const parallaxElements = document.querySelectorAll('.hero-content');
+        const parallaxElements = document.querySelectorAll('.hero-text');
         
         parallaxElements.forEach(element => {
             const speed = 0.5;
@@ -509,6 +509,43 @@ const throttledScrollHandler = throttle(function() {
 
 window.addEventListener('scroll', throttledScrollHandler);
 
+// Speed Insights Integration
+function initializeSpeedInsights() {
+    // Track custom events for Speed Insights
+    if (typeof window.si === 'function') {
+        // Track server IP copy events
+        document.addEventListener('click', function(e) {
+            if (e.target.closest('.cta-button') && e.target.closest('.cta-button').onclick === copyServerIP) {
+                window.si('event', 'server-ip-copy');
+            }
+        });
+
+        // Track navigation events
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                const section = this.getAttribute('href').replace('#', '');
+                window.si('event', 'navigation', { section: section });
+            });
+        });
+
+        // Track store interactions
+        document.addEventListener('click', function(e) {
+            if (e.target.closest('.rank-button')) {
+                window.si('event', 'rank-purchase-click');
+            }
+            if (e.target.closest('.coin-button')) {
+                window.si('event', 'coin-purchase-click');
+            }
+        });
+    }
+}
+
+// Initialize Speed Insights when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    // Small delay to ensure Speed Insights script is loaded
+    setTimeout(initializeSpeedInsights, 1000);
+});
+
 // Export functions for use in other scripts
 window.MCNepal = {
     copyToClipboard,
@@ -517,5 +554,6 @@ window.MCNepal = {
     validateForm,
     setLoadingState,
     debounce,
-    throttle
+    throttle,
+    initializeSpeedInsights
 };
