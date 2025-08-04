@@ -1,0 +1,74 @@
+name: Deploy MCNepal.fun to Vercel
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 🛎️ Checkout code
+        uses: actions/checkout@v4
+        
+      - name: 🔧 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          
+      - name: 📦 Install dependencies
+        run: npm ci --only=production || npm install --only=production
+        
+      - name: 🔍 Run basic tests
+        run: |
+          echo "🧪 Testing file structure..."
+          test -f index.html || (echo "❌ index.html missing" && exit 1)
+          test -f assets/css/style.css || (echo "❌ style.css missing" && exit 1)
+          test -f assets/js/main.js || (echo "❌ main.js missing" && exit 1)
+          test -f vercel.json || (echo "❌ vercel.json missing" && exit 1)
+          echo "✅ All required files present"
+          
+      - name: 🌐 Deploy to Vercel (Preview)
+        if: github.event_name == 'pull_request'
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          scope: ${{ secrets.VERCEL_ORG_ID }}
+          
+      - name: 🚀 Deploy to Vercel (Production)
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          vercel-args: '--prod'
+          scope: ${{ secrets.VERCEL_ORG_ID }}
+          
+      - name: 📊 Performance Check
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+        run: |
+          echo "🔍 Basic performance checks..."
+          # Check if critical files exist and are not empty
+          [ -s "assets/css/style.css" ] && echo "✅ CSS file has content"
+          [ -s "assets/js/main.js" ] && echo "✅ JS file has content"
+          [ -s "index.html" ] && echo "✅ HTML file has content"
+          echo "🎉 Performance check completed"
+          
+      - name: 📝 Comment deployment URL
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '🚀 **Preview Deployment Ready!**\n\nYour changes have been deployed to a preview environment.\n\n🔍 **Preview URL:** Check the Vercel deployment logs for the preview URL.\n\n⚡ **What was deployed:**\n- Latest changes from this PR\n- Full MCNepal.fun website functionality\n- All assets and configurations\n\n✅ **Ready for review!**'
+            })

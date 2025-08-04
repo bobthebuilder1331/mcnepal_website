@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MCNepal.fun - The Ultimate Minecraft SMP Server in Nepal. Join our survival server with economy, land claims, jobs, and more!">
+    <meta name="keywords" content="minecraft, server, nepal, smp, survival, economy, land claims, jobs">
+    <meta name="author" content="MCNepal.fun">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.mcnepal.fun/">
+    <meta property="og:title" content="MCNepal.fun - Ultimate Minecraft SMP Server">
+    <meta property="og:description" content="Join the best Minecraft survival server in Nepal with economy, land claims, jobs, and amazing community!">
+    <meta property="og:image" content="assets/images/og-image.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.mcnepal.fun/">
+    <meta property="twitter:title" content="MCNepal.fun - Ultimate Minecraft SMP Server">
+    <meta property="twitter:description" content="Join the best Minecraft survival server in Nepal with economy, land claims, jobs, and amazing community!">
+    <meta property="twitter:image" content="assets/images/og-image.png">
+
+    <title>MCNepal.fun - Ultimate Minecraft SMP Server</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="assets/images/server_icon.png" alt="MCNepal.fun Logo" class="logo">
+                <span class="brand-text">MCNepal.fun</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="#store" class="nav-link">Store</a></li>
+                <li><a href="#stats" class="nav-link">Stats</a></li>
+                <li><a href="#community" class="nav-link">Community</a></li>
+                <li><a href="#support" class="nav-link">Support</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div id="particles-js"></div>
+        <div class="hero-content">
+            <div class="container">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        Welcome to <span class="gradient-text">MCNepal.fun</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        The Ultimate Minecraft SMP Experience in Nepal
+                    </p>
+                    <p class="hero-description">
+                        Join our thriving survival server with economy, land claims, jobs, and an amazing community. 
+                        Experience the best of Minecraft with Nepalese hospitality!
+                    </p>
+                    <div class="hero-buttons">
+                        <button class="cta-button primary" onclick="copyServerIP()">
+                            <i class="fas fa-copy"></i>
+                            Copy Server IP
+                        </button>
+                        <a href="#features" class="cta-button secondary">
+                            <i class="fas fa-arrow-down"></i>
+                            Learn More
+                        </a>
+                    </div>
+                    <div class="server-info">
+                        <div class="server-ip">
+                            <strong>Server IP:</strong> <span id="server-ip">mcnepal.fun</span>
+                        </div>
+                        <div class="server-version">
+                            <strong>Version:</strong> 1.21.8
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-number" id="online-players">0</div>
+                            <div class="stat-label">Players Online</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-number" id="server-status">Online</div>
+                            <div class="stat-label">Server Status</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-number" id="uptime">99.9%</div>
+                            <div class="stat-label">Uptime</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why Choose MCNepal.fun?</h2>
+                <p class="section-subtitle">Discover what makes our server unique and exciting</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <h3 class="feature-title">Economy System</h3>
+                    <p class="feature-description">
+                        Start with $90 and build your wealth through jobs, trading, and smart investments. 
+                        Our balanced economy keeps gameplay fair and exciting.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Land Protection</h3>
+                    <p class="feature-description">
+                        Claim your land with GriefPrevention. Start with 100 blocks and earn more through playtime. 
+                        Your builds are always safe and secure.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3 class="feature-title">Jobs & Progression</h3>
+                    <p class="feature-description">
+                        Choose from 5 different jobs: Miner, Builder, Farmer, Hunter, and Fisherman. 
+                        Level up and earn money doing what you love.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <h3 class="feature-title">Player Auctions</h3>
+                    <p class="feature-description">
+                        Buy and sell items through our player auction system. 
+                        Find rare items or make profit from your discoveries.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3 class="feature-title">Voting Rewards</h3>
+                    <p class="feature-description">
+                        Vote for our server and get amazing rewards! 
+                        Help us grow and get rewarded for your support.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="feature-title">Multiple Worlds</h3>
+                    <p class="feature-description">
+                        Explore multiple worlds including survival, nether, and end dimensions. 
+                        Each world offers unique adventures and challenges.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Store Section -->
+    <section id="store" class="store">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Server Store</h2>
+                <p class="section-subtitle">Support the server and get amazing perks</p>
+            </div>
+
+            <!-- Rank Store -->
+            <div class="store-section">
+                <h3 class="store-section-title">
+                    <i class="fas fa-crown"></i>
+                    Ranks
+                </h3>
+                <div class="ranks-grid">
+                    <div class="rank-card bronze">
+                        <div class="rank-header">
+                            <div class="rank-icon">
+                                <i class="fas fa-medal"></i>
+                            </div>
+                            <h4 class="rank-name">Bronze</h4>
+                            <div class="rank-price">NPR 675</div>
+                        </div>
+                        <ul class="rank-features">
+                            <li><i class="fas fa-check"></i> Bronze prefix in chat</li>
+                            <li><i class="fas fa-check"></i> 2 extra homes</li>
+                            <li><i class="fas fa-check"></i> Kit Bronze (weekly)</li>
+                            <li><i class="fas fa-check"></i> Priority support</li>
+                        </ul>
+                        <button class="rank-button" onclick="purchaseRank('bronze')">Purchase</button>
+                    </div>
+
+                    <div class="rank-card silver">
+                        <div class="rank-header">
+                            <div class="rank-icon">
+                                <i class="fas fa-medal"></i>
+                            </div>
+                            <h4 class="rank-name">Silver</h4>
+                            <div class="rank-price">NPR 1,350</div>
+                        </div>
+                        <ul class="rank-features">
+                            <li><i class="fas fa-check"></i> Silver prefix in chat</li>
+                            <li><i class="fas fa-check"></i> 4 extra homes</li>
+                            <li><i class="fas fa-check"></i> Kit Silver (weekly)</li>
+                            <li><i class="fas fa-check"></i> /nick command</li>
+                            <li><i class="fas fa-check"></i> All Bronze perks</li>
+                        </ul>
+                        <button class="rank-button" onclick="purchaseRank('silver')">Purchase</button>
+                    </div>
+
+                    <div class="rank-card gold popular">
+                        <div class="popular-badge">Most Popular</div>
+                        <div class="rank-header">
+                            <div class="rank-icon">
+                                <i class="fas fa-crown"></i>
+                            </div>
+                            <h4 class="rank-name">Gold</h4>
+                            <div class="rank-price">NPR 2,700</div>
+                        </div>
+                        <ul class="rank-features">
+                            <li><i class="fas fa-check"></i> Gold prefix in chat</li>
+                            <li><i class="fas fa-check"></i> 6 extra homes</li>
+                            <li><i class="fas fa-check"></i> Kit Gold (weekly)</li>
+                            <li><i class="fas fa-check"></i> /fly in spawn</li>
+                            <li><i class="fas fa-check"></i> Custom join message</li>
+                            <li><i class="fas fa-check"></i> All Silver perks</li>
+                        </ul>
+                        <button class="rank-button" onclick="purchaseRank('gold')">Purchase</button>
+                    </div>
+
+                    <div class="rank-card diamond">
+                        <div class="rank-header">
+                            <div class="rank-icon">
+                                <i class="fas fa-gem"></i>
+                            </div>
+                            <h4 class="rank-name">Diamond</h4>
+                            <div class="rank-price">NPR 4,725</div>
+                        </div>
+                        <ul class="rank-features">
+                            <li><i class="fas fa-check"></i> Diamond prefix in chat</li>
+                            <li><i class="fas fa-check"></i> 8 extra homes</li>
+                            <li><i class="fas fa-check"></i> Kit Diamond (weekly)</li>
+                            <li><i class="fas fa-check"></i> /back command</li>
+                            <li><i class="fas fa-check"></i> Colored chat</li>
+                            <li><i class="fas fa-check"></i> All Gold perks</li>
+                        </ul>
+                        <button class="rank-button" onclick="purchaseRank('diamond')">Purchase</button>
+                    </div>
+
+                    <div class="rank-card elite">
+                        <div class="rank-header">
+                            <div class="rank-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <h4 class="rank-name">Elite</h4>
+                            <div class="rank-price">NPR 6,750</div>
+                        </div>
+                        <ul class="rank-features">
+                            <li><i class="fas fa-check"></i> Elite prefix in chat</li>
+                            <li><i class="fas fa-check"></i> 12 extra homes</li>
+                            <li><i class="fas fa-check"></i> Kit Elite (weekly)</li>
+                            <li><i class="fas fa-check"></i> /heal command</li>
+                            <li><i class="fas fa-check"></i> /feed command</li>
+                            <li><i class="fas fa-check"></i> All Diamond perks</li>
+                        </ul>
+                        <button class="rank-button" onclick="purchaseRank('elite')">Purchase</button>
+                    </div>
+
+                    <div class="rank-card legend">
+                        <div class="rank-header">
+                            <div class="rank-icon">
+                                <i class="fas fa-fire"></i>
+                            </div>
+                            <h4 class="rank-name">Legend</h4>
+                            <div class="rank-price">NPR 10,125</div>
+                        </div>
+                        <ul class="rank-features">
+                            <li><i class="fas fa-check"></i> Legend prefix in chat</li>
+                            <li><i class="fas fa-check"></i> 16 extra homes</li>
+                            <li><i class="fas fa-check"></i> Kit Legend (weekly)</li>
+                            <li><i class="fas fa-check"></i> /repair command</li>
+                            <li><i class="fas fa-check"></i> Special cosmetics</li>
+                            <li><i class="fas fa-check"></i> All Elite perks</li>
+                        </ul>
+                        <button class="rank-button" onclick="purchaseRank('legend')">Purchase</button>
+                    </div>
+
+                    <div class="rank-card champion">
+                        <div class="rank-header">
+                            <div class="rank-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <h4 class="rank-name">Champion</h4>
+                            <div class="rank-price">NPR 13,500</div>
+                        </div>
+                        <ul class="rank-features">
+                            <li><i class="fas fa-check"></i> Champion prefix in chat</li>
+                            <li><i class="fas fa-check"></i> Unlimited homes</li>
+                            <li><i class="fas fa-check"></i> Kit Champion (weekly)</li>
+                            <li><i class="fas back"></i> /god command</li>
+                            <li><i class="fas fa-check"></i> Exclusive cosmetics</li>
+                            <li><i class="fas fa-check"></i> All Legend perks</li>
+                        </ul>
+                        <button class="rank-button" onclick="purchaseRank('champion')">Purchase</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coins Store -->
+            <div class="store-section">
+                <h3 class="store-section-title">
+                    <i class="fas fa-coins"></i>
+                    Server Coins
+                </h3>
+                <div class="coins-grid">
+                    <div class="coin-package">
+                        <div class="coin-header">
+                            <div class="coin-icon">
+                                <i class="fas fa-coin"></i>
+                            </div>
+                            <h4 class="coin-amount">$1,000</h4>
+                            <div class="coin-price">NPR 250</div>
+                        </div>
+                        <p class="coin-description">Perfect for getting started with the economy</p>
+                        <button class="coin-button" onclick="purchaseCoins(1000)">Purchase</button>
+                    </div>
+
+                    <div class="coin-package popular">
+                        <div class="popular-badge">Best Value</div>
+                        <div class="coin-header">
+                            <div class="coin-icon">
+                                <i class="fas fa-coins"></i>
+                            </div>
+                            <h4 class="coin-amount">$5,000</h4>
+                            <div class="coin-price">NPR 1,000</div>
+                        </div>
+                        <p class="coin-description">Great value pack for serious players</p>
+                        <button class="coin-button" onclick="purchaseCoins(5000)">Purchase</button>
+                    </div>
+
+                    <div class="coin-package">
+                        <div class="coin-header">
+                            <div class="coin-icon">
+                                <i class="fas fa-treasure-chest"></i>
+                            </div>
+                            <h4 class="coin-amount">$10,000</h4>
+                            <div class="coin-price">NPR 1,750</div>
+                        </div>
+                        <p class="coin-description">Maximum coins for wealthy players</p>
+                        <button class="coin-button" onclick="purchaseCoins(10000)">Purchase</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Player Stats Section -->
+    <section id="stats" class="stats">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Server Statistics</h2>
+                <p class="section-subtitle">Live data from our server</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stats-card">
+                    <h3 class="stats-title">Top Players by Balance</h3>
+                    <div class="leaderboard" id="balance-leaderboard">
+                        <div class="leaderboard-item">
+                            <div class="rank">#1</div>
+                            <div class="player">Loading...</div>
+                            <div class="value">$0</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="stats-card">
+                    <h3 class="stats-title">Top Players by Playtime</h3>
+                    <div class="leaderboard" id="playtime-leaderboard">
+                        <div class="leaderboard-item">
+                            <div class="rank">#1</div>
+                            <div class="player">Loading...</div>
+                            <div class="value">0h</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="stats-card">
+                    <h3 class="stats-title">Jobs Leaderboard</h3>
+                    <div class="leaderboard" id="jobs-leaderboard">
+                        <div class="leaderboard-item">
+                            <div class="rank">#1</div>
+                            <div class="player">Loading...</div>
+                            <div class="value">Level 0</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section id="community" class="community">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Join Our Community</h2>
+                <p class="section-subtitle">Connect with fellow players and stay updated</p>
+            </div>
+            <div class="community-grid">
+                <div class="community-card discord">
+                    <div class="community-icon">
+                        <i class="fab fa-discord"></i>
+                    </div>
+                    <h3 class="community-title">Discord Server</h3>
+                    <p class="community-description">
+                        Join our Discord community to chat with players, get support, and stay updated with server news.
+                    </p>
+                    <a href="#" class="community-button">Join Discord</a>
+                </div>
+                <div class="community-card rules">
+                    <div class="community-icon">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <h3 class="community-title">Server Rules</h3>
+                    <p class="community-description">
+                        Read our server rules to ensure a fair and fun experience for everyone on MCNepal.fun.
+                    </p>
+                    <a href="#" class="community-button">View Rules</a>
+                </div>
+                <div class="community-card wiki">
+                    <div class="community-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3 class="community-title">Server Wiki</h3>
+                    <p class="community-description">
+                        Learn about all server features, commands, and gameplay mechanics in our comprehensive wiki.
+                    </p>
+                    <a href="#" class="community-button">Visit Wiki</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Section -->
+    <section id="support" class="support">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Support Development</h2>
+                <p class="section-subtitle">Help us keep the server running and improving</p>
+            </div>
+            <div class="support-content">
+                <div class="support-card">
+                    <div class="support-icon">
+                        <i class="fas fa-coffee"></i>
+                    </div>
+                    <h3 class="support-title">Buy Me a Coffee</h3>
+                    <p class="support-description">
+                        Support the developers and help us continue improving MCNepal.fun. Every contribution helps us maintain the server and add new features.
+                    </p>
+                    <div class="support-buttons">
+                        <a href="https://www.buymeacoffee.com/mcnepal" target="_blank" class="coffee-button">
+                            <i class="fas fa-coffee"></i>
+                            Buy Me a Coffee
+                        </a>
+                        <div class="coffee-amounts">
+                            <button class="amount-button" onclick="buyCoffe(250)">NPR 250</button>
+                            <button class="amount-button" onclick="buyCoffe(500)">NPR 500</button>
+                            <button class="amount-button" onclick="buyCoffe(1000)">NPR 1,000</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <img src="assets/images/server_icon.png" alt="MCNepal.fun Logo" class="footer-logo">
+                        <span class="footer-brand-text">MCNepal.fun</span>
+                    </div>
+                    <p class="footer-description">
+                        The ultimate Minecraft SMP experience in Nepal. Join our community and start your adventure today!
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#store">Store</a></li>
+                        <li><a href="#stats">Stats</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Community</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Discord</a></li>
+                        <li><a href="#">Rules</a></li>
+                        <li><a href="#">Wiki</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Server Info</h4>
+                    <div class="server-details">
+                        <p><strong>IP:</strong> mcnepal.fun</p>
+                        <p><strong>Version:</strong> 1.21.8</p>
+                        <p><strong>Type:</strong> Survival SMP</p>
+                        <p><strong>Location:</strong> Nepal</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MCNepal.fun. All rights reserved.</p>
+                <p>Formerly NEPULSE SMP</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/particles-config.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/server-status.js"></script>
+    <script src="assets/js/store.js"></script>
+</body>
+</html>

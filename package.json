@@ -1,0 +1,33 @@
+{
+  "name": "mcnepal-website",
+  "version": "1.0.0",
+  "description": "Official website for MCNepal.fun Minecraft server",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx http-server . -p 3000 -o",
+    "build": "echo 'Static site - no build needed'",
+    "start": "npx http-server . -p 8080",
+    "deploy": "vercel --prod"
+  },
+  "keywords": [
+    "minecraft",
+    "server",
+    "nepal",
+    "smp",
+    "gaming",
+    "website"
+  ],
+  "author": "MCNepal.fun Team",
+  "license": "MIT",
+  "homepage": "https://www.mcnepal.fun",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/mcnepal-website.git"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+
+# Important pages
+Allow: /index.html
+Allow: /assets/css/
+Allow: /assets/js/
+Allow: /assets/images/
+
+# Disallow admin and sensitive areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /.git/
+Disallow: /node_modules/
+
+# Sitemap location
+Sitemap: https://www.mcnepal.fun/sitemap.xml
+
+# Crawl delay
+Crawl-delay: 1

@@ -1,0 +1,457 @@
+# MCNepal.fun - Complete Minecraft Server Documentation
+
+## 🎮 Server Overview
+
+**Server Name**: MCNepal.fun (formerly NEPULSE SMP)
+**Brand Transition**: Updating from NEPULSE SMP to MCNepal.fun
+**Server Type**: Survival Multiplayer (SMP) with Economy & Land Claims
+**Version**: Paper 1.21.8
+**Max Players**: 20
+**Game Mode**: Survival
+**Difficulty**: Normal
+
+## 📋 Executive Summary
+
+This is a comprehensive, fully-configured Minecraft server with multiple worlds, extensive plugin ecosystem, economy system, land claiming, jobs, player auctions, and integrated payment system via eSewa API for rank purchases. The server features both survival gameplay and a lobby system with sophisticated permission management.
+
+## 🌍 World Structure
+
+### Primary Worlds
+1. **world** - Main lobby/spawn world
+   - Location: `/world/`
+   - Purpose: Server hub and spawn area
+   - Features: Spawn protection, lobby setup
+
+2. **Survival_World** - Main survival world
+   - Location: `/Survival_World/`
+   - Purpose: Primary survival gameplay
+   - Features: Extensive explored terrain, player builds
+   - Region files: 400+ region files indicating active exploration
+
+3. **Survival_Lobby** - Secondary survival area
+   - Location: `/Survival_Lobby/`
+   - Purpose: Alternative survival space
+   - Features: Smaller footprint, controlled environment
+
+4. **Nether Worlds**
+   - `world_nether/` - Main world nether
+   - `Survival_World_nether/` - Survival world nether
+
+5. **End Worlds**
+   - `world_the_end/` - Main world end
+   - `Survival_World_end/` - Survival world end
+
+## 🔧 Core Server Configuration
+
+### Server Properties (server.properties)
+```properties
+# Core Settings
+server-port=25565
+max-players=20
+gamemode=survival
+difficulty=normal
+online-mode=false
+enable-command-block=true
+pvp=true
+
+# Performance Settings
+view-distance=8
+simulation-distance=8
+spawn-protection=16
+
+# MOTD
+motd=§b§l✦ §d§lNEPULSE SMP §b§l✦ §r\n§f§oWelcome to the adventure!
+```
+
+### Paper Configuration
+- **Server Type**: PaperMC (optimized Spigot fork)
+- **Version**: 1.21.8
+- **Performance**: Optimized for 20 players
+- **Anti-cheat**: Built-in optimizations enabled
+
+## 🔌 Plugin Ecosystem (42 Total Plugins)
+
+### 🎯 Core Management Plugins
+1. **LuckPerms** - Permission management
+   - Storage: H2 database
+   - Groups: default, vip, moderator, admin, owner
+   - Features: Chat prefixes, weight-based hierarchy
+
+2. **EssentialsX** - Core commands
+   - Teleportation with cooldowns (3s)
+   - Home management
+   - Kits and spawn management
+   - Starting balance: $90
+
+3. **Vault** - Economy API bridge
+   - Links economy plugins
+   - Permission integration
+
+### 💰 Economy System
+1. **BetterEconomy** - Primary economy
+   - Currency: $ (dollars)
+   - Starting amount: $90
+   - Format: Uses thousands separators
+   - Minimum balance: $0
+
+2. **Bank** - Banking system
+   - Player banks and loans
+   - Interest systems
+   - SQLite database storage
+
+3. **EconomyShopGUI** - Server shop
+   - GUI-based shopping
+   - Admin-configurable items
+   - Transaction logging
+
+### 🏘️ Land Management
+1. **GriefPrevention** - Land claiming
+   - Initial blocks: 100 per player
+   - Accrual rate: 100 blocks/hour
+   - Max blocks: 80,000
+   - Auto-claims for new players
+
+2. **WorldGuard** - Region protection
+   - Global protection features
+   - Region management
+   - Flag system
+
+3. **RealEstate** - Advanced property system
+   - Property buying/selling
+   - Rent system
+   - GriefPrevention integration
+
+### 💼 Jobs & Progression
+1. **Jobs** - Player jobs system
+   - Available jobs: Miner, Builder, Farmer, Hunter, Fisherman
+   - SQLite database: `jobs.sqlite.db`
+   - Economy integration
+   - Progression tracking
+
+2. **PlayTime** - Player activity tracking
+   - Session tracking
+   - Playtime rewards potential
+   - JSON data storage
+
+### 🛒 Trading & Commerce
+1. **PlayerAuctions** - Player-to-player auctions
+   - Auction house system
+   - Bidding mechanics
+   - Economy integration
+
+2. **ChestShop** - Player shops
+   - Chest-based shops
+   - Shop creation permissions
+   - Economy integration
+
+3. **TradeSystem** - Direct player trading
+   - Secure trading interface
+   - Trade confirmation system
+
+### 🎁 Rewards & Engagement
+1. **CrazyCrates** - Crate system
+   - Reward crates
+   - Key system
+   - Customizable rewards
+
+2. **VotingPlugin** - Voting rewards
+   - Vote sites integration
+   - Reward system
+   - Database: `Users.db`
+
+3. **SlotMachine** - Casino games
+   - Token-based gaming
+   - Configurable rewards
+
+### 🌐 World Management
+1. **Multiverse-Core** - Multi-world management
+2. **Multiverse-Inventories** - Per-world inventories
+3. **Multiverse-NetherPortals** - Nether portal management
+4. **Multiverse-Portals** - Custom portals
+5. **BetterRTP** - Random teleportation
+   - Cooldown system
+   - Safe location detection
+   - Integration with protection plugins
+
+### 🎨 Visual & Social
+1. **TAB** - Player list customization
+   - Header/footer messages
+   - Player sorting
+   - Prefix/suffix display
+
+2. **VentureChat** - Advanced chat management
+   - Multiple channels
+   - Chat formatting
+   - Spam protection
+
+3. **FancyHolograms** - Holographic displays
+   - Information displays
+   - Dynamic content
+
+### 🔒 Security & Monitoring
+1. **CoreProtect** - Block logging
+   - SQLite database: `database.db`
+   - Rollback capabilities
+   - Grief investigation
+
+2. **AntiCheatReloaded** - Cheat detection
+   - Movement validation
+   - Combat monitoring
+
+3. **Maintenance** - Server maintenance mode
+   - Whitelist during maintenance
+   - Custom messages
+
+### 🔧 Utility Plugins
+1. **WorldEdit** - World editing tools
+2. **Chunky** - World pre-generation
+3. **ClearLag** - Performance optimization
+4. **BetterSleeping** - Sleep mechanics
+5. **RoseStacker** - Entity/item stacking
+6. **Geyser-Spigot** - Bedrock player support
+7. **ViaVersion/ViaBackwards** - Version compatibility
+8. **ProtocolLib** - Packet manipulation library
+9. **PlaceholderAPI** - Placeholder system
+
+## 💳 eSewa Payment Integration
+
+### Current Implementation
+- **File**: `esewa_integration.php`
+- **Purpose**: Rank purchase system
+- **Payment Gateway**: eSewa (Nepal's digital wallet)
+
+### Rank System & Pricing (NPR)
+```php
+$ranks = [
+    'bronze' => ['price' => 675, 'group' => 'bronze'],
+    'silver' => ['price' => 1350, 'group' => 'silver'],
+    'gold' => ['price' => 2700, 'group' => 'gold'],
+    'diamond' => ['price' => 4725, 'group' => 'diamond'],
+    'elite' => ['price' => 6750, 'group' => 'elite'],
+    'legend' => ['price' => 10125, 'group' => 'legend'],
+    'champion' => ['price' => 13500, 'group' => 'champion']
+];
+```
+
+### Database Schema
+```sql
+CREATE TABLE rank_transactions (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    transaction_id VARCHAR(100) UNIQUE NOT NULL,
+    player_uuid VARCHAR(36) NOT NULL,
+    rank_name VARCHAR(50) NOT NULL,
+    amount DECIMAL(10,2) NOT NULL,
+    status ENUM('pending', 'completed', 'failed', 'refunded'),
+    esewa_reference VARCHAR(100),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+```
+
+### Payment Flow
+1. Player selects rank on website
+2. Redirected to eSewa payment gateway
+3. Payment verification via eSewa API
+4. Automatic rank promotion via RCON
+5. In-game notification and broadcast
+
+### RCON Integration
+- **Host**: localhost
+- **Port**: 25575
+- **Commands**: LuckPerms rank promotion, player notifications
+
+## 🗄️ Database Systems
+
+### Plugin Databases
+1. **LuckPerms**: H2 database (`luckperms-h2-v2.mv.db`)
+2. **CoreProtect**: SQLite (`database.db`)
+3. **Jobs**: SQLite (`jobs.sqlite.db`)
+4. **VotingPlugin**: SQLite (`Users.db`)
+5. **Bank**: SQLite (`database.db`)
+6. **BetterEconomy**: YAML files (`balances.yml`)
+
+## 🌐 Website Integration Requirements
+
+### Essential Website Features
+1. **Player Statistics Dashboard**
+   - Playtime tracking (PlayTime plugin data)
+   - Economy stats (BetterEconomy data)
+   - Job progression (Jobs plugin data)
+
+2. **Rank Store**
+   - eSewa payment integration
+   - Rank comparison table
+   - Purchase history
+
+3. **Server Status**
+   - Online player count
+   - Server uptime
+   - MOTD display
+
+4. **Community Features**
+   - Player profiles
+   - Achievement displays
+   - Leaderboards (economy, playtime, jobs)
+
+### API Endpoints Needed
+1. **Player Data API**
+   ```
+   GET /api/player/{uuid}
+   - Player statistics
+   - Economy balance
+   - Playtime
+   - Current rank
+   ```
+
+2. **Server Status API**
+   ```
+   GET /api/server/status
+   - Online players
+   - Server version
+   - MOTD
+   ```
+
+3. **Economy API**
+   ```
+   GET /api/economy/top
+   - Top player balances
+   - Economy statistics
+   ```
+
+4. **Purchase API**
+   ```
+   POST /api/purchase/rank
+   - Initiate rank purchase
+   - eSewa integration
+   ```
+
+### Database Connections Required
+1. **MySQL/MariaDB** for website data
+2. **SQLite readers** for plugin databases
+3. **RCON connection** for real-time server commands
+
+## 🔐 Security Considerations
+
+### Current Security Measures
+1. **Anti-cheat**: AntiCheatReloaded plugin
+2. **Logging**: CoreProtect for all block changes
+3. **Permission System**: LuckPerms with proper hierarchy
+4. **Land Protection**: GriefPrevention + WorldGuard
+
+### Website Security Requirements
+1. **Payment Security**: eSewa API encryption
+2. **Database Security**: Prepared statements, input validation
+3. **Session Management**: Secure player authentication
+4. **RCON Security**: Encrypted connection, command validation
+
+## 📊 Performance Metrics
+
+### Server Resources
+- **Render Distance**: 8 chunks
+- **Simulation Distance**: 8 chunks
+- **Max Players**: 20
+- **World Size**: 400+ region files in main survival world
+
+### Plugin Performance
+- **ClearLag**: Automatic entity cleanup
+- **RoseStacker**: Entity optimization
+- **Chunk Management**: Chunky for pre-generation
+
+## 🚀 Deployment Instructions
+
+### Server Startup
+1. **Start Script**: `start.bat`
+2. **Server JAR**: `server.jar` (Paper 1.21.8)
+3. **Java Version**: Recommended Java 17+
+
+### First-Time Setup Commands
+```bash
+# LuckPerms group setup
+lp creategroup default
+lp creategroup vip  
+lp creategroup moderator
+lp creategroup admin
+lp creategroup owner
+
+# Set group weights and prefixes
+lp group default setweight 1
+lp group default meta set prefix "&7[Member] "
+lp group vip setweight 10
+lp group vip meta set prefix "&b[VIP] "
+# ... etc for all groups
+```
+
+### Website Integration Setup
+1. Configure database connections
+2. Set up eSewa merchant credentials
+3. Configure RCON connection
+4. Test payment flow
+5. Set up API endpoints
+
+## 🔄 Brand Transition: NEPULSE SMP → MCNepal.fun
+
+### Required Updates
+1. **MOTD**: Update server.properties
+2. **Plugin Configurations**: Update any hardcoded references
+3. **Holograms**: Update FancyHolograms displays
+4. **Chat Messages**: Update VentureChat formatting
+5. **Website**: Complete rebrand to MCNepal.fun theme
+
+### Files to Update
+- `server.properties` (MOTD)
+- Plugin configuration files with server name references
+- Custom messages and announcements
+- Website branding elements
+
+## 📞 Support & Maintenance
+
+### Regular Maintenance Tasks
+1. **Database Backups**: Daily automated backups
+2. **Plugin Updates**: Monthly update cycle
+3. **Performance Monitoring**: Server TPS and memory usage
+4. **Security Audits**: Regular security checks
+
+### Monitoring Endpoints
+1. **Server Status**: Real-time player count
+2. **Performance Metrics**: TPS, memory usage
+3. **Plugin Status**: Individual plugin health checks
+4. **Economy Health**: Balance distribution, transaction volume
+
+## 🎯 Website Development Priorities
+
+### Phase 1: Core Features
+1. Server status display
+2. Player authentication system
+3. Basic player statistics
+
+### Phase 2: E-commerce
+1. eSewa payment integration
+2. Rank purchase system
+3. Transaction history
+
+### Phase 3: Community
+1. Player profiles
+2. Leaderboards
+3. Community features
+
+### Phase 4: Advanced Features
+1. Real-time server management
+2. Advanced statistics
+3. Mobile optimization
+
+---
+
+## 📋 Technical Specifications Summary
+
+- **Server Software**: PaperMC 1.21.8
+- **Total Plugins**: 42
+- **Database Systems**: H2, SQLite, YAML
+- **Payment Gateway**: eSewa API
+- **Worlds**: 6 (main, survival, nether, end variations)
+- **Economy**: Multi-plugin system with BetterEconomy core
+- **Permissions**: LuckPerms with 5-tier hierarchy
+- **Land Protection**: GriefPrevention + WorldGuard
+- **Max Capacity**: 20 concurrent players
+- **Port**: 25565 (standard Minecraft)
+
+This server represents a comprehensive, production-ready Minecraft SMP with extensive features suitable for a commercial gaming community focused on the Nepalese market.
