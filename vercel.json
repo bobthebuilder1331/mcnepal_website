@@ -1,6 +1,7 @@
 {
-  "version": 2,
-  "name": "mcnepal-website",
+  "buildCommand": "",
+  "outputDirectory": ".",
+  "installCommand": "npm install --only=production",
   "headers": [
     {
       "source": "/(.*)",
@@ -49,11 +50,6 @@
   "redirects": [
     {
       "source": "/home",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/mcnepal.fun",
       "destination": "/",
       "permanent": true
     }
