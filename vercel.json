@@ -1,42 +1,6 @@
 {
   "version": 2,
   "name": "mcnepal-website",
-  "builds": [
-    {
-      "src": "index.html",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/",
-      "dest": "/index.html"
-    },
-    {
-      "src": "/index.html",
-      "headers": {
-        "cache-control": "s-maxage=0"
-      }
-    },
-    {
-      "src": "/assets/(.*)",
-      "headers": {
-        "cache-control": "s-maxage=31536000, immutable"
-      }
-    },
-    {
-      "src": "/sw.js",
-      "headers": {
-        "cache-control": "s-maxage=0"
-      }
-    },
-    {
-      "src": "/(robots.txt|sitemap.xml|favicon.ico)",
-      "headers": {
-        "cache-control": "s-maxage=86400"
-      }
-    }
-  ],
   "headers": [
     {
       "source": "/(.*)",
@@ -62,12 +26,24 @@
           "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://mc-heads.net https://api.mcsrvstat.us; connect-src 'self' https://api.mcsrvstat.us https://esewa.com.np; frame-src 'none';"
         }
       ]
-    }
-  ],
-  "rewrites": [
+    },
     {
-      "source": "/((?!api/).*)",
-      "destination": "/index.html"
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(robots.txt|sitemap.xml|favicon.ico)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
+      ]
     }
   ],
   "redirects": [
@@ -75,11 +51,11 @@
       "source": "/home",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/mcnepal.fun",
+      "destination": "/",
+      "permanent": true
     }
-  ],
-  "functions": {
-    "app/api/**/*.js": {
-      "runtime": "@vercel/node"
-    }
-  }
+  ]
 }
